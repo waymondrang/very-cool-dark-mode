@@ -1,7 +1,7 @@
 {
-    "name": "raymond's darkmode extension",
+    "name": "very cool dark mode",
     "version": "3.0",
-    "description": "will make your google classroom and synergy much more comfortable for the eyes 🌚",
+    "description": "google classroom and synergy under the moonlight 🌚",
     "manifest_version": 2,
     "content_scripts": [
         {
