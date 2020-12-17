@@ -1,0 +1,27 @@
+{
+    "name": "raymond's darkmode extension",
+    "version": "3.0",
+    "description": "will make your google classroom and synergy much more comfortable for the eyes 🌚",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": [
+                "*://classroom.google.com/*"
+            ],
+            "js": [
+                "index.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://ca-egusd-psv.edupoint.com/*"
+            ],
+            "js": [
+                "edupoint.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "storage"
+    ]
+}
