@@ -19,6 +19,14 @@
             "js": [
                 "edupoint.js"
             ]
+        },
+        {
+            "matches": [
+                "*://*.zoom.us/*"
+            ],
+            "js": [
+                "zoom.js"
+            ]
         }
     ],
     "permissions": [

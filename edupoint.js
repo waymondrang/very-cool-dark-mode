@@ -55,7 +55,7 @@ modal.id = "dark-mode-modal";
 modal.innerHTML = `
 <div id="dark-mode-settings">
 <h2 id="dark-mode-title">dark mode settings</h2>
-<p>dark mode created with <3 by <a href="https://github.com/waymondrang">raymond wang</a></p>
+<p>created with <3 by <a href="https://github.com/waymondrang">raymond wang</a></p>
 </div>
 `;
 
@@ -828,6 +828,9 @@ body {
     margin: 0;
 }
 #dark-mode-title {
+    font-weight: normal;
+    color: #fff;
+    font-size: 32px;
     margin: 4px 0;
 }
 #dark-mode-field {
