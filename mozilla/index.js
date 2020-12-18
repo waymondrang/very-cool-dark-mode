@@ -47,34 +47,34 @@ function savesettings() {
     var newhovercolor = document.querySelector("#dark-mode-hover-color").value;
     var extracss = document.querySelector("#dark-mode-extra-css").value;
     if (newaccentcolor) {
-        chrome.storage.local.set({ "gc-accentcolor": newaccentcolor.trim() === "*" ? "#ffffff" : newaccentcolor })
+        browser.storage.local.set({ "gc-accentcolor": newaccentcolor.trim() === "*" ? "#ffffff" : newaccentcolor })
     }
     if (newtextcolor) {
-        chrome.storage.local.set({ "gc-textcolor": newtextcolor.trim() === "*" ? "#ffffff" : newtextcolor })
+        browser.storage.local.set({ "gc-textcolor": newtextcolor.trim() === "*" ? "#ffffff" : newtextcolor })
     }
     if (newsecondarytextcolor) {
-        chrome.storage.local.set({ "gc-secondarytextcolor": newsecondarytextcolor.trim() === "*" ? "#9e9e9e" : newsecondarytextcolor })
+        browser.storage.local.set({ "gc-secondarytextcolor": newsecondarytextcolor.trim() === "*" ? "#9e9e9e" : newsecondarytextcolor })
     }
     if (newwarningcolor) {
-        chrome.storage.local.set({ "gc-warningcolor": newwarningcolor.trim() === "*" ? "#c5221f" : newwarningcolor })
+        browser.storage.local.set({ "gc-warningcolor": newwarningcolor.trim() === "*" ? "#c5221f" : newwarningcolor })
     }
     if (newsuccesscolor) {
-        chrome.storage.local.set({ "gc-successcolor": newsuccesscolor.trim() === "*" ? "#1e8e3e" : newsuccesscolor })
+        browser.storage.local.set({ "gc-successcolor": newsuccesscolor.trim() === "*" ? "#1e8e3e" : newsuccesscolor })
     }
     if (newbordercolor) {
-        chrome.storage.local.set({ "gc-bordercolor": newbordercolor.trim() === "*" ? "#373737" : newbordercolor })
+        browser.storage.local.set({ "gc-bordercolor": newbordercolor.trim() === "*" ? "#373737" : newbordercolor })
     }
     if (newbackgroundcolor) {
-        chrome.storage.local.set({ "gc-backgroundcolor": newbackgroundcolor.trim() === "*" ? "#1b1b1b" : newbackgroundcolor })
+        browser.storage.local.set({ "gc-backgroundcolor": newbackgroundcolor.trim() === "*" ? "#1b1b1b" : newbackgroundcolor })
     }
     if (newsecondarybackgroundcolor) {
-        chrome.storage.local.set({ "gc-secondarybackgroundcolor": newsecondarybackgroundcolor.trim() === "*" ? "#212121" : newsecondarybackgroundcolor })
+        browser.storage.local.set({ "gc-secondarybackgroundcolor": newsecondarybackgroundcolor.trim() === "*" ? "#212121" : newsecondarybackgroundcolor })
     }
     if (newhovercolor) {
-        chrome.storage.local.set({ "gc-hovercolor": newhovercolor.trim() === "*" ? "#373737" : newhovercolor })
+        browser.storage.local.set({ "gc-hovercolor": newhovercolor.trim() === "*" ? "#373737" : newhovercolor })
     }
     if (extracss) {
-        chrome.storage.local.set({ "gc-extracss": extracss.trim() === "*" ? "" : extracss })
+        browser.storage.local.set({ "gc-extracss": extracss.trim() === "*" ? "" : extracss })
     }
     document.querySelector("#dark-mode-message").innerHTML = "settings saved. refresh to see changes."
 }
@@ -148,12 +148,12 @@ togglebutton.onclick = function () {
         document.querySelector("#dark-mode-style").remove()
         document.querySelector("#dark-mode-switch").innerHTML = "🌚"
         darkmodestate = false
-        chrome.storage.local.set({ "gc-darkmode": false })
+        browser.storage.local.set({ "gc-darkmode": false })
     } else {
         insertstyle(accentcolor, warningcolor, successcolor, extracss, bordercolor, backgroundcolor, textcolor, secondarybackgroundcolor, secondarytextcolor, hovercolor)
         document.querySelector("#dark-mode-switch").innerHTML = "🌞"
         darkmodestate = true
-        chrome.storage.local.set({ "gc-darkmode": true })
+        browser.storage.local.set({ "gc-darkmode": true })
     }
 }
 
@@ -445,7 +445,7 @@ modalbutton.onclick = function () {
         togglemodal = false;
     } else {
         document.querySelector("#dark-mode-curtain").style.display = "flex";
-        chrome.storage.local.get(["gc-extracss"], function (result) {
+        browser.storage.local.get(["gc-extracss"], function (result) {
             if (result && result["gc-extracss"]) {
                 document.querySelector("#dark-mode-extra-css").value = result["gc-extracss"];
             }
@@ -454,7 +454,7 @@ modalbutton.onclick = function () {
     }
 }
 
-chrome.storage.local.get(["gc-darkmode", "gc-accentcolor", "gc-warningcolor", "gc-successcolor", "gc-extracss", "gc-bordercolor", "gc-backgroundcolor", "gc-textcolor", "gc-secondarybackgroundcolor", "gc-secondarytextcolor", "gc-hovercolor"], function (result) {
+browser.storage.local.get(["gc-darkmode", "gc-accentcolor", "gc-warningcolor", "gc-successcolor", "gc-extracss", "gc-bordercolor", "gc-backgroundcolor", "gc-textcolor", "gc-secondarybackgroundcolor", "gc-secondarytextcolor", "gc-hovercolor"], function (result) {
     if (result && result["gc-accentcolor"]) {
         accentcolor = result["gc-accentcolor"]
     }

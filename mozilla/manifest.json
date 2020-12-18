@@ -1,0 +1,35 @@
+{
+    "name": "very cool dark mode",
+    "version": "3.0",
+    "description": "google classroom and synergy under the moonlight 🌚",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": [
+                "*://classroom.google.com/*"
+            ],
+            "js": [
+                "index.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://ca-egusd-psv.edupoint.com/*"
+            ],
+            "js": [
+                "edupoint.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://*.zoom.us/*"
+            ],
+            "js": [
+                "zoom.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "storage"
+    ]
+}
