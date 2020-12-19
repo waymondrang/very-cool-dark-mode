@@ -1,3 +1,5 @@
+//import confetti from "./confetti.js";
+
 var darkmodestate = true;
 var togglemodal = false;
 var accentcolor = "#ffffff";
@@ -19,21 +21,43 @@ if (debugmode) {
 
 var oldHref = document.location.href;
 
-if (debugmode) {
-    var urlobserver = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-            if (oldHref != document.location.href) {
-                oldHref = document.location.href;
-                //alert(window.location.pathname.split(/\//gm)[window.location.pathname.split(/\//gm).length - 1])
+var urlobserver = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+        if (oldHref != document.location.href) {
+            oldHref = document.location.href;
+            if (window.location.pathname.split(/\//gm)[window.location.pathname.split(/\//gm).length - 1].toLowerCase() === "details") {
+                const confettiscript = document.createElement('script');
+                confettiscript.setAttribute("type", "module");
+                confettiscript.setAttribute("src", browser.extension.getURL('confetti.js'));
+                confettiscript.id = "confetti-script";
+                document.body.insertBefore(confettiscript, document.body.lastChild);
+            } else {
+                var removescript = document.querySelector("#confetti-script");
+                if (removescript) {
+                    removescript.remove();
+                }
             }
-        });
+        }
     });
+});
 
-    urlobserver.observe(document.querySelector("body"), {
-        childList: true,
-        subtree: true
-    });
-}
+urlobserver.observe(document.querySelector("body"), {
+    childList: true,
+    subtree: true
+});
+
+//INSERT SCRIPT TAG
+const confettisrc = document.createElement("script");
+confettisrc.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js";
+confettisrc.type = "module";
+const head = document.head || document.getElementsByTagName("head")[0] || document.documentElement;
+head.insertBefore(confettisrc, head.lastChild)
+
+const confettiscript = document.createElement('script');
+confettiscript.setAttribute("type", "module");
+confettiscript.setAttribute("src", browser.extension.getURL('confetti.js'));
+confettiscript.id = "confetti-script";
+document.body.insertBefore(confettiscript, document.body.lastChild);
 
 function savesettings() {
     var newaccentcolor = document.querySelector("#dark-mode-accent-color").value;
@@ -178,6 +202,9 @@ defaultstyle.innerHTML = `
     font-family: "Google Sans";
     src: url('https://fonts.gstatic.com/s/googlesans/v16/4UaGrENHsxJlGDuGo1OIlL3Owp4.woff2') format('woff');
 }
+canvas {
+    z-index: 40 !important;
+}
 #dark-mode-switch {
     position: fixed;
     right: 68px;
@@ -308,18 +335,22 @@ defaultstyle.innerHTML = `
 function insertstyle(accent, warning, success, extra, border, bg, text, secondary, secondarytext, hover) {
     var style = document.createElement("style")
     style.innerHTML = `
-    body, nav, .joJglb, .ETRkCe, .LlcfK, .u73Apc {
+    body, .LlcfK, .u73Apc {
         color: ${text} !important;
         background-color: ${bg} !important;
         box-shadow: none !important;
     }
+    .ETRkCe, nav, .joJglb {
+        background: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}ee` : bg} !important;
+        background-color: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}ee` : bg} !important;
+    }
     .idtp4e, .Xp0OCe, .hVNH5c .K0NPx {
         border-radius: 6px !important;
     }
-    .Aopndd, .idtp4e, .zTrXGf, .d4Fe0d, .uQ3ESd, .hgjBDc, .ncFHed, .MHxtic, .ndcsBf, .I7OXgf, .hVNH5c .K0NPx, .AJFihd, .IzVHde {
+    .Aopndd, .idtp4e, .zTrXGf, .d4Fe0d, .uQ3ESd, .hgjBDc, .ncFHed, .MHxtic, .ndcsBf, .I7OXgf, .hVNH5c .K0NPx, .AJFihd, .IzVHde, .GWZ7yf {
         background-color: ${secondary} !important;
     }
-    .Aopndd, .idtp4e, .d4Fe0d, .lXuxY, .u73Apc, .Xp0OCe, .ncFHed, .oleV8d, .hVNH5c .K0NPx, .AJFihd {
+    .Aopndd, .idtp4e, .d4Fe0d, .lXuxY, .u73Apc, .ncFHed, .oleV8d, .hVNH5c .K0NPx, .AJFihd, .GWZ7yf, .ybOdnf .eU809d {
         border-color: ${border} !important;
         border: .0625rem solid ${border} !important;
     }
@@ -336,7 +367,7 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
         /* LARGER BORDER! */
         border-top: .125rem solid ${border} !important;
     }
-    .yoORU, .joJglb, .xPAMbf {
+    .yoORU, .joJglb, .xPAMbf, .qj5L0 {
         border-bottom: .0625rem solid ${border} !important;      
     }
     .BOW64 {
@@ -345,7 +376,7 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
     .tUJKGd:not(:first-child), .QTD2uf, .MHxtic:not(:last-child) {
         border: none !important;
     }
-    .K6Ovqd, .asQXV, .NjE5zd, .onkcGd, .onkcGd:visited, .EZrbnd, a, .A6dC2c, .rpo4wf, .O98Lj, .z80M1, .IqJTee, .ksaOtd, .asQXV-FGzYL, .l4V7wb .NPEfkd {
+    .K6Ovqd, .asQXV, .NjE5zd, .onkcGd, .onkcGd:visited, .EZrbnd, a, .A6dC2c, .rpo4wf, .O98Lj, .z80M1, .IqJTee, .ksaOtd, .asQXV-FGzYL, .l4V7wb .NPEfkd, .YVvGBb, .sW08rb, .fV9iCe, .JsqLM.F262Ye {
         color: ${text} !important;
     }
     .GWZ7yf, .MHxtic, .QkA63b:not(.RDPZE):hover, .Y5sE8d:not(.RDPZE):hover, .QkA63b:not(.RDPZE).u3bW4e, .Y5sE8d:not(.RDPZE).u3bW4e, .rZXyy.YwNp1, .rZXyy:not(.u0dx8e):not(.ILo0B):not(.xp2dJ):hover, .rZXyy:not(.u0dx8e):not(.ILo0B):not(.xp2dJ):focus {
@@ -366,6 +397,8 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
         /* margin-right: 0px !important;
         margin-left: 0 !important; */
         border-radius: 0.5rem !important;
+    }
+    .LlcfK, .MHxtic, .ETRkCe {
         transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     .u73Apc {
@@ -375,19 +408,22 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
     .JPdR6b {
         background: none !important; 
     }
-    .udxSmc, .dDKhVc, .sdDCme, .WOPwXe, .tLDEHd, .HZ3kWc, .wZTANe .J1raN, .oBSRLe, .Evt7cb, .Evt7cb:visited, .Lzdwhd-BrZSOd, .UQuaGc, .ppMo6b, .ViCi4, .IMvYId, .IMvYId:visited, .gJk24c {
+    .udxSmc, .dDKhVc, .sdDCme, .WOPwXe, .tLDEHd, .HZ3kWc, .wZTANe .J1raN, .oBSRLe, .Evt7cb, .Evt7cb:visited, .Lzdwhd-BrZSOd, .UQuaGc, .ppMo6b, .ViCi4, .IMvYId, .IMvYId:visited, .gJk24c, .NMm5M, .gb_qa svg, .gb_Cc svg, .gb_Zc .gb_fe, .gb_Oc .gb_fe, .DwLQSc, .JsqLM.pCcXPe, .JsqLM.N4XV7d {
         /* SECONDARY COLOR */
         color: ${secondarytext} !important;
     }
     .gHz6xd {
         margin: .0625rem 1.5625rem 1.5625rem .0625rem;
     }
-    .d4Fe0d.s3BYNe {
+    .d4Fe0d.s3BYNe, .Xp0OCe, .LlcfK, .Xi8cpb:active .p1KYTc {
         border-color: transparent !important;
         background-color: transparent !important;
     }
-    .R4EiSb {
+    .R4EiSb, nav, .joJglb {
         backdrop-filter: blur(2px);
+    }
+    .ETRkCe {
+        backdrop-filter: blur(4px);
     }
     .uO32ac, .ypv4re {
         border-bottom: none !important;
@@ -395,13 +431,16 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
         border-radius: 6px !important;
     }
     .joJglb.kLHn3 {
-        background-color: transparent !important;
+        background-color: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}be` : bg} !important;
         backdrop-filter: blur(4px);
+    }
+    .MbhUzd {
+        background-image: none !important;
     }
 
     /* THEMATIC COLORS */
 
-    .eumXzf:after, .tgNIJf-Wvd9Cc:focus, .ndcsBf.cjzpkc-Wvd9Cc, .AeAAkf:not(.RDPZE):hover, .AeAAkf:not(.RDPZE).u3bW4e, .BEAGS:not(.RDPZE):hover, .BEAGS:not(.RDPZE).u3bW4e {
+    .eumXzf:after, .tgNIJf-Wvd9Cc:focus, .ndcsBf.cjzpkc-Wvd9Cc, .AeAAkf:not(.RDPZE):hover, .AeAAkf:not(.RDPZE).u3bW4e, .BEAGS:not(.RDPZE):hover, .BEAGS:not(.RDPZE).u3bW4e, .AeAAkf {
         border-color: ${accent} !important;
     }
     .VnOHwf-Tvm9db, .OZ6W0d:not(.RDPZE), .wwnMtb:not(.RDPZE), .DqwBN:not(.RDPZE), .l3F1ye:not(.RDPZE), .BEAGS:not(.RDPZE), .AeAAkf:not(.RDPZE), .DPvwYc, .HyS0Qd:not(.RDPZE).u3bW4e .snByac, .HyS0Qd input:not([disabled]):focus ~ .snByac, .fWf7qe:not(.RDPZE).u3bW4e .snByac, .D3oBEe:not(.RDPZE).u3bW4e .snByac, .D3oBEe input:not([disabled]):focus ~ .snByac, .AkVYk:not(.RDPZE).u3bW4e .snByac, .vnnr5e:not(.RDPZE).u3bW4e .snByac  {
@@ -410,16 +449,16 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
     .OZ6W0d:not(.RDPZE), .wwnMtb:not(.RDPZE) {
         fill: ${accent} !important;
     }
-    .UISY8d-Ysl7Fe:hover, .bFjUmb-Ysl7Fe, .CNpREd.bFjUmb-Wvd9Cc, .CNpREd .bFjUmb-Wvd9Cc, .P3W0Dd-Ysl7Fe:focus, .maXJsd:focus .P3W0Dd-Ysl7Fe, .maXJsd:focus .P3W0Dd-Ysl7Fe, .MocG8c.KKjvXb {
+    .UISY8d-Ysl7Fe:hover, .bFjUmb-Ysl7Fe, .CNpREd.bFjUmb-Wvd9Cc, .CNpREd .bFjUmb-Wvd9Cc, .P3W0Dd-Ysl7Fe:focus, .maXJsd:focus .P3W0Dd-Ysl7Fe, .maXJsd:focus .P3W0Dd-Ysl7Fe, .MocG8c.KKjvXb, .bFjUmb-Wvd9Cc {
         background-color: ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}1a` : accent} !important; 
     }
     .BEAGS {
         border: .0625rem solid ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}5a` : accent} !important; 
     }
     .QkA63b:not(.RDPZE), .Y5sE8d:not(.RDPZE), .AeAAkf:not(.RDPZE) .CeoRYc, .BEAGS:not(.RDPZE) .CeoRYc, .l3F1ye:not(.RDPZE) .CeoRYc, .DqwBN:not(.RDPZE) .CeoRYc {
-        background-color: ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}10` : accent} !important; 
+        background-color: ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}6a` : accent} !important; 
     }
-    .G1kKid, .bNpzdf, .HyS0Qd:not(.RDPZE) .cXrdqd, .fWf7qe:not(.RDPZE) .cXrdqd, .vnnr5e:not(.RDPZE) .cXrdqd {
+    .G1kKid, .bNpzdf, .HyS0Qd:not(.RDPZE) .cXrdqd, .fWf7qe:not(.RDPZE) .cXrdqd, .vnnr5e:not(.RDPZE) .cXrdqd, .JsqLM.F262Ye {
         background-color: ${accent} !important; 
     }
     .bFjUmb-Wvd9Cc.COMMENT {
