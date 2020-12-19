@@ -29,6 +29,9 @@
             ]
         }
     ],
+    "web_accessible_resources": [
+        "confetti.js"
+    ],
     "permissions": [
         "storage"
     ]
