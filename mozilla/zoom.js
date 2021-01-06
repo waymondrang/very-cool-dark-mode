@@ -64,7 +64,7 @@ var field = document.createElement("div");
 field.id = "dark-mode-field";
 field.innerHTML = `
 <p>
-please include the # if you are using hex values. to restore default value for any category, use *. to remove post-meeting zoom image, use **.
+use hex values whenever possible (include the #). to restore default value for any category, use *. to remove post-meeting zoom image, use **.
 </p>
 <input autocomplete="false" placeholder="accent theme" class="dark-mode-input" id="dark-mode-accent-theme"></input>
 <input autocomplete="false" placeholder="color theme" class="dark-mode-input" id="dark-mode-color-theme"></input>
@@ -270,6 +270,7 @@ defaultstyle.innerHTML = `
     resize: vertical;
 }
 `
+
 function insertstyle(accent, post, bgcolor, extra, color, secondary) {
     var style = document.createElement("style")
     style.innerHTML = `

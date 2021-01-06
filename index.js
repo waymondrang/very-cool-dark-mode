@@ -126,7 +126,7 @@ var field = document.createElement("div");
 field.id = "dark-mode-field";
 field.innerHTML = `
 <p>
-please include the # if you are using hex values. to restore default value for any category, use *.
+use hex values whenever possible (include the #). to restore default value for any category, use *.
 </p>
 <input autocomplete="false" placeholder="accent color" class="dark-mode-input" id="dark-mode-accent-color"></input>
 <input autocomplete="false" placeholder="text color" class="dark-mode-input" id="dark-mode-text-color"></input>
@@ -344,10 +344,13 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
         background: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}ee` : bg} !important;
         background-color: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}ee` : bg} !important;
     }
-    .idtp4e, .Xp0OCe, .hVNH5c .K0NPx {
+    .idtp4e, .Xp0OCe, .hVNH5c .K0NPx, .bFjUmb-Wvd9Cc, .xHPsid .hN1OOc, .uHMk6b, .tWKJ2 {
         border-radius: 6px !important;
     }
-    .Aopndd, .idtp4e, .zTrXGf, .d4Fe0d, .uQ3ESd, .hgjBDc, .ncFHed, .MHxtic, .ndcsBf, .I7OXgf, .hVNH5c .K0NPx, .AJFihd, .IzVHde, .GWZ7yf {
+    .iobNdf, .mh4Cme, .P47N4e.P47N4e, .vUBwW {
+        border-radius: 500px !important;
+    }
+    .Aopndd, .idtp4e, .zTrXGf, .d4Fe0d, .uQ3ESd, .hgjBDc, .ncFHed, .MHxtic, .ndcsBf, .I7OXgf, .hVNH5c .K0NPx, .AJFihd, .IzVHde, .GWZ7yf, .D3oBEe .qTs5Xc, .TisIWb .kKn9Nc:before, .feojCc {
         background-color: ${secondary} !important;
     }
     .Aopndd, .idtp4e, .d4Fe0d, .lXuxY, .u73Apc, .ncFHed, .oleV8d, .hVNH5c .K0NPx, .AJFihd, .GWZ7yf, .ybOdnf .eU809d {
@@ -360,26 +363,35 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
     .idtp4e:hover, .UvQypf:hover, .qk0lee:focus:after, .z80M1.FwR7Pc, .MHxtic:hover {
         background-color: ${hover} !important; 
     }
-    .s2g3Xd, .PeGHgb.Q8U8uc .Ono85c+.oh9CFb, .PeGHgb.Q8U8uc .ruTJle+.fETHd, .O9YpHb, .LKqFXc, .SZ0kZe, .P02DYb {
+    .s2g3Xd, .PeGHgb.Q8U8uc .Ono85c+.oh9CFb, .PeGHgb.Q8U8uc .ruTJle+.fETHd, .O9YpHb, .LKqFXc, .SZ0kZe, .P02DYb, .d6CWTd, .kCtYwe, .E5f6Vd {
         border-top: .0625rem solid ${border} !important;
+    }
+    .WMQb5e .oBSRLe, .ycbm1d {
+        border-top: .0625rem solid ${border};
     }
     .ar1wE .eqqrO, .ySjuvd .eqqrO {
         /* LARGER BORDER! */
         border-top: .125rem solid ${border} !important;
     }
-    .yoORU, .joJglb, .xPAMbf, .qj5L0 {
+    .yoORU, .joJglb, .xPAMbf, .qj5L0, .gKkZCe {
         border-bottom: .0625rem solid ${border} !important;      
     }
-    .BOW64 {
+    .BOW64, .JwOYEc {
         border-right: .0625rem solid ${border} !important;        
     }
-    .tUJKGd:not(:first-child), .QTD2uf, .MHxtic:not(:last-child) {
+    .QTD2uf, .MHxtic:not(:last-child) {
         border: none !important;
     }
-    .K6Ovqd, .asQXV, .NjE5zd, .onkcGd, .onkcGd:visited, .EZrbnd, a, .A6dC2c, .rpo4wf, .O98Lj, .z80M1, .IqJTee, .ksaOtd, .asQXV-FGzYL, .l4V7wb .NPEfkd, .YVvGBb, .sW08rb, .fV9iCe, .JsqLM.F262Ye {
+    .tUJKGd:not(:first-child) {
+        border-top: none !important;
+    }
+    .VWtDre .bKJwEd {
+        font-weight: normal;
+    }
+    .K6Ovqd, .asQXV, .NjE5zd, .onkcGd, .onkcGd:visited, .EZrbnd, a, .A6dC2c, .rpo4wf, .O98Lj, .z80M1, .IqJTee, .ksaOtd, .asQXV-FGzYL, .l4V7wb .NPEfkd, .YVvGBb, .sW08rb, .fV9iCe, .JsqLM.F262Ye, input, .Dh6gpc, .Dh6gpc.UxkAGc {
         color: ${text} !important;
     }
-    .GWZ7yf, .MHxtic, .QkA63b:not(.RDPZE):hover, .Y5sE8d:not(.RDPZE):hover, .QkA63b:not(.RDPZE).u3bW4e, .Y5sE8d:not(.RDPZE).u3bW4e, .rZXyy.YwNp1, .rZXyy:not(.u0dx8e):not(.ILo0B):not(.xp2dJ):hover, .rZXyy:not(.u0dx8e):not(.ILo0B):not(.xp2dJ):focus {
+    .GWZ7yf, .MHxtic, .QkA63b:not(.RDPZE):hover, .Y5sE8d:not(.RDPZE):hover, .QkA63b:not(.RDPZE).u3bW4e, .Y5sE8d:not(.RDPZE).u3bW4e, .rZXyy.YwNp1, .rZXyy:not(.u0dx8e):not(.ILo0B):not(.xp2dJ):hover, .rZXyy:not(.u0dx8e):not(.ILo0B):not(.xp2dJ):focus, .lXuxY, .pO6AMc, .PqkECe {
         box-shadow: none !important;
     }
     .Kma9Mb, .lYU7F {
@@ -412,10 +424,14 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
         /* SECONDARY COLOR */
         color: ${secondarytext} !important;
     }
+    .neggzd {
+        color: ${secondarytext.split("")[0] === "#" && secondarytext.length === 7 ? `${secondarytext}ee` : secondarytext} !important;
+        text-shadow: none !important;
+    }
     .gHz6xd {
         margin: .0625rem 1.5625rem 1.5625rem .0625rem;
     }
-    .d4Fe0d.s3BYNe, .Xp0OCe, .LlcfK, .Xi8cpb:active .p1KYTc {
+    .d4Fe0d.s3BYNe, .Xp0OCe, .LlcfK, .Xi8cpb:active .p1KYTc, .bFjUmb-Ysl7Fe {
         border-color: transparent !important;
         background-color: transparent !important;
     }
@@ -443,14 +459,17 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
     .eumXzf:after, .tgNIJf-Wvd9Cc:focus, .ndcsBf.cjzpkc-Wvd9Cc, .AeAAkf:not(.RDPZE):hover, .AeAAkf:not(.RDPZE).u3bW4e, .BEAGS:not(.RDPZE):hover, .BEAGS:not(.RDPZE).u3bW4e, .AeAAkf {
         border-color: ${accent} !important;
     }
-    .VnOHwf-Tvm9db, .OZ6W0d:not(.RDPZE), .wwnMtb:not(.RDPZE), .DqwBN:not(.RDPZE), .l3F1ye:not(.RDPZE), .BEAGS:not(.RDPZE), .AeAAkf:not(.RDPZE), .DPvwYc, .HyS0Qd:not(.RDPZE).u3bW4e .snByac, .HyS0Qd input:not([disabled]):focus ~ .snByac, .fWf7qe:not(.RDPZE).u3bW4e .snByac, .D3oBEe:not(.RDPZE).u3bW4e .snByac, .D3oBEe input:not([disabled]):focus ~ .snByac, .AkVYk:not(.RDPZE).u3bW4e .snByac, .vnnr5e:not(.RDPZE).u3bW4e .snByac  {
+    .OZ6W0d:not(.RDPZE), .wwnMtb:not(.RDPZE), .DqwBN:not(.RDPZE), .l3F1ye:not(.RDPZE), .BEAGS:not(.RDPZE), .AeAAkf:not(.RDPZE), .DPvwYc, .HyS0Qd input:not([disabled]):focus ~ .snByac, .D3oBEe input:not([disabled]):focus ~ .snByac, .u3bW4e .snByac {
         color: ${accent} !important;
     }
     .OZ6W0d:not(.RDPZE), .wwnMtb:not(.RDPZE) {
         fill: ${accent} !important;
     }
-    .UISY8d-Ysl7Fe:hover, .bFjUmb-Ysl7Fe, .CNpREd.bFjUmb-Wvd9Cc, .CNpREd .bFjUmb-Wvd9Cc, .P3W0Dd-Ysl7Fe:focus, .maXJsd:focus .P3W0Dd-Ysl7Fe, .maXJsd:focus .P3W0Dd-Ysl7Fe, .MocG8c.KKjvXb, .bFjUmb-Wvd9Cc {
+    .ybOdnf:not(.iWO5td) .LMgvRb.KKjvXb, .ybOdnf:not(.RDPZE).iWO5td, .ybOdnf:not(.RDPZE) .OA0qNb .LMgvRb[aria-selected="true"], .NqFm6:not(.RDPZE) .tWfTvb [role="option"][aria-selected="true"], .ncFHed .MocG8c.KKjvXb, .bFjUmb-Wvd9Cc, .bFjUmb-Wvd9Cc, .CNpREd.bFjUmb-Wvd9Cc, .CNpREd .bFjUmb-Wvd9Cc, .DShyMc-AaTFfe .Xi8cpb.qs41qe .LlcfK, .Xi8cpb:hover .LlcfK, .UISY8d-Ysl7Fe:hover, .MymH0d:hover .UISY8d-Ysl7Fe, .MymH0d:hover .UISY8d-Ysl7Fe {
         background-color: ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}1a` : accent} !important; 
+    }
+    .tfGBod.tfGBod:not(.xp2dJ), .tfGBod.xp2dJ .jWCzBe, .tfGBod.xp2dJ .iobNdf {
+        background-color: transparent !important;
     }
     .BEAGS {
         border: .0625rem solid ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}5a` : accent} !important; 

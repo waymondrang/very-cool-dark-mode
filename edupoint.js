@@ -45,7 +45,7 @@ curtain.id = "dark-mode-curtain"
 
 var shade = document.createElement("div");
 shade.id = "dark-mode-shade";
-shade.onclick = function() {
+shade.onclick = function () {
     document.querySelector("#dark-mode-curtain").style.display = "none";
     togglemodal = false;
 }
@@ -63,7 +63,7 @@ var field = document.createElement("div");
 field.id = "dark-mode-field";
 field.innerHTML = `
 <p>
-please include the # if you are using hex values. to restore default value for any category, use *.
+use hex values whenever possible (include the #). to restore default value for any category, use *.
 </p>
 <input autocomplete="false" placeholder="border theme" class="dark-mode-input" id="dark-mode-border-theme"></input>
 <input autocomplete="false" placeholder="shade theme" class="dark-mode-input" id="dark-mode-shade-theme"></input>

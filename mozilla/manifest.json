@@ -1,7 +1,7 @@
 {
     "name": "very cool dark mode",
-    "version": "3.0",
-    "description": "google classroom and synergy under the moonlight 🌚",
+    "version": "prerelease v1.0",
+    "description": "google classroom, zoom, and synergy under the moonlight 🌚",
     "manifest_version": 2,
     "content_scripts": [
         {
@@ -27,12 +27,21 @@
             "js": [
                 "zoom.js"
             ]
+        },
+        {
+            "matches": [
+                "*://docs.google.com/forms/d/e/*"
+            ],
+            "js": [
+                "docs.js"
+            ]
         }
     ],
     "web_accessible_resources": [
         "confetti.js"
     ],
     "permissions": [
-        "storage"
+        "storage",
+        "webRequest"
     ]
 }
