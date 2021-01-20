@@ -859,6 +859,9 @@ body {
 #dark-mode-extra-css {
     resize: vertical;
 }
+table.MsoNormalTable {
+    background: transparent !important;
+}
 `
 
 var modalbutton = document.createElement("button");

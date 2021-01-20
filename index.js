@@ -11,6 +11,9 @@ var backgroundcolor = "#1b1b1b";
 var secondarybackgroundcolor = "#212121";
 var secondarytextcolor = "#9e9e9e";
 var hovercolor = "#373737"
+var defaultaccentcolor = "#ffffff";
+var defaultsecondarycolor = "#9e9e9e";
+var defaultbackgroundcolor = "#1b1b1b";
 var debugmode = false;
 var extracss;
 
@@ -341,8 +344,8 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
         box-shadow: none !important;
     }
     .ETRkCe, nav, .joJglb {
-        background: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}ee` : bg} !important;
-        background-color: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}ee` : bg} !important;
+        background: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}ee` : `${defaultbackgroundcolor}ee`} !important;
+        background-color: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}ee` : `${defaultbackgroundcolor}ee`} !important;
     }
     .idtp4e, .Xp0OCe, .hVNH5c .K0NPx, .bFjUmb-Wvd9Cc, .xHPsid .hN1OOc, .uHMk6b, .tWKJ2 {
         border-radius: 6px !important;
@@ -425,7 +428,7 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
         color: ${secondarytext} !important;
     }
     .neggzd {
-        color: ${secondarytext.split("")[0] === "#" && secondarytext.length === 7 ? `${secondarytext}ee` : secondarytext} !important;
+        color: ${secondarytext.split("")[0] === "#" && secondarytext.length === 7 ? `${secondarytext}ee` : `${defaultsecondarycolor}ee`} !important;
         text-shadow: none !important;
     }
     .gHz6xd {
@@ -447,7 +450,7 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
         border-radius: 6px !important;
     }
     .joJglb.kLHn3 {
-        background-color: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}be` : bg} !important;
+        background-color: ${bg.split("")[0] === "#" && bg.length === 7 ? `${bg}be` : `${defaultbackgroundcolor}be`} !important;
         backdrop-filter: blur(4px);
     }
     .MbhUzd {
@@ -459,23 +462,23 @@ function insertstyle(accent, warning, success, extra, border, bg, text, secondar
     .eumXzf:after, .tgNIJf-Wvd9Cc:focus, .ndcsBf.cjzpkc-Wvd9Cc, .AeAAkf:not(.RDPZE):hover, .AeAAkf:not(.RDPZE).u3bW4e, .BEAGS:not(.RDPZE):hover, .BEAGS:not(.RDPZE).u3bW4e, .AeAAkf {
         border-color: ${accent} !important;
     }
-    .OZ6W0d:not(.RDPZE), .wwnMtb:not(.RDPZE), .DqwBN:not(.RDPZE), .l3F1ye:not(.RDPZE), .BEAGS:not(.RDPZE), .AeAAkf:not(.RDPZE), .DPvwYc, .HyS0Qd input:not([disabled]):focus ~ .snByac, .D3oBEe input:not([disabled]):focus ~ .snByac, .u3bW4e .snByac {
+    .OZ6W0d:not(.RDPZE), .wwnMtb:not(.RDPZE), .DqwBN:not(.RDPZE), .l3F1ye:not(.RDPZE), .BEAGS:not(.RDPZE), .AeAAkf:not(.RDPZE), .DPvwYc, .HyS0Qd input:not([disabled]):focus ~ .snByac, .D3oBEe input:not([disabled]):focus ~ .snByac, .u3bW4e .snByac, .VnOHwf-Tvm9db, .CNpREd .VnOHwf-Tvm9db {
         color: ${accent} !important;
     }
     .OZ6W0d:not(.RDPZE), .wwnMtb:not(.RDPZE) {
         fill: ${accent} !important;
     }
-    .ybOdnf:not(.iWO5td) .LMgvRb.KKjvXb, .ybOdnf:not(.RDPZE).iWO5td, .ybOdnf:not(.RDPZE) .OA0qNb .LMgvRb[aria-selected="true"], .NqFm6:not(.RDPZE) .tWfTvb [role="option"][aria-selected="true"], .ncFHed .MocG8c.KKjvXb, .bFjUmb-Wvd9Cc, .bFjUmb-Wvd9Cc, .CNpREd.bFjUmb-Wvd9Cc, .CNpREd .bFjUmb-Wvd9Cc, .DShyMc-AaTFfe .Xi8cpb.qs41qe .LlcfK, .Xi8cpb:hover .LlcfK, .UISY8d-Ysl7Fe:hover, .MymH0d:hover .UISY8d-Ysl7Fe, .MymH0d:hover .UISY8d-Ysl7Fe {
-        background-color: ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}1a` : accent} !important; 
+    .ybOdnf:not(.iWO5td) .LMgvRb.KKjvXb, .ybOdnf:not(.RDPZE).iWO5td, .ybOdnf:not(.RDPZE) .OA0qNb .LMgvRb[aria-selected="true"], .NqFm6:not(.RDPZE) .tWfTvb [role="option"][aria-selected="true"], .ncFHed .MocG8c.KKjvXb, .bFjUmb-Wvd9Cc, .bFjUmb-Wvd9Cc, .CNpREd.bFjUmb-Wvd9Cc, .CNpREd .bFjUmb-Wvd9Cc, .DShyMc-AaTFfe .Xi8cpb.qs41qe .LlcfK, .Xi8cpb:hover .LlcfK, .UISY8d-Ysl7Fe:hover, .MymH0d:hover .UISY8d-Ysl7Fe, .MymH0d:hover .UISY8d-Ysl7Fe, .P3W0Dd-Ysl7Fe:focus, .maXJsd:focus .P3W0Dd-Ysl7Fe, .maXJsd:focus .P3W0Dd-Ysl7Fe {
+        background-color: ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}1a` : `${defaultaccentcolor}1a`} !important; 
     }
     .tfGBod.tfGBod:not(.xp2dJ), .tfGBod.xp2dJ .jWCzBe, .tfGBod.xp2dJ .iobNdf {
         background-color: transparent !important;
     }
     .BEAGS {
-        border: .0625rem solid ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}5a` : accent} !important; 
+        border: .0625rem solid ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}5a` : `${defaultaccentcolor}5a`} !important; 
     }
     .QkA63b:not(.RDPZE), .Y5sE8d:not(.RDPZE), .AeAAkf:not(.RDPZE) .CeoRYc, .BEAGS:not(.RDPZE) .CeoRYc, .l3F1ye:not(.RDPZE) .CeoRYc, .DqwBN:not(.RDPZE) .CeoRYc {
-        background-color: ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}6a` : accent} !important; 
+        background-color: ${accent.split("")[0] === "#" && accent.length === 7 ? `${accent}6a` : `${defaultaccentcolor}6a`} !important; 
     }
     .G1kKid, .bNpzdf, .HyS0Qd:not(.RDPZE) .cXrdqd, .fWf7qe:not(.RDPZE) .cXrdqd, .vnnr5e:not(.RDPZE) .cXrdqd, .JsqLM.F262Ye {
         background-color: ${accent} !important; 

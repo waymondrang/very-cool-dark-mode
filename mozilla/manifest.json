@@ -1,6 +1,6 @@
 {
     "name": "very cool dark mode",
-    "version": "prerelease v1.0",
+    "version": "1.09",
     "description": "google classroom, zoom, and synergy under the moonlight 🌚",
     "manifest_version": 2,
     "content_scripts": [
@@ -41,7 +41,6 @@
         "confetti.js"
     ],
     "permissions": [
-        "storage",
-        "webRequest"
+        "storage"
     ]
 }
